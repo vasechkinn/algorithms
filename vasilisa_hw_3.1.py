@@ -22,10 +22,16 @@ class Autor:
     def __init__(self, name: str, surname: str):
         self.name = name
         self.surname = surname 
-               
+
 class Book:
     def __init__(self, name_book: str, autor: Autor,
                  number_of_pages: int):
         self.name_book = name_book
         self.autor = Autor
         self.number_of_pages = number_of_pages
+
+    def has_page_open(self, num_str):
+        if self.number_of_pages <= num_str:
+            return f'страница успешно открыта'
+        else:
+            return f'fatal((('
