@@ -31,7 +31,7 @@ class Book:
     def __init__(self, name_book: str, autor: Autor,
                  number_of_pages: int):
         self.name_book = name_book
-        self.autor = Autor
+        self.autor = autor
         self.number_of_pages = number_of_pages
 
     def has_page_open(self, num_str):
@@ -43,3 +43,8 @@ class Book:
     def __str__(self):
         return f"{self.name_book, self.autor, self.number_of_pages}"
     
+au = Autor('NO', 'Name')
+print('фвтор:', au)
+
+book1 = Book('new_book', au, 50) #спросить дмитрия про вывод автора
+print(book1)
