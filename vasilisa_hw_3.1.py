@@ -18,7 +18,11 @@
 
 # sound = Animals.sound_animal(input('input sound: '))
 # print(sound)
-
+class Autor:
+    def __init__(self, name: str, surname: str):
+        self.name = name
+        self.surname = surname 
+               
 class Book:
     def __init__(self, name_book: str, autor: Autor,
                  number_of_pages: int):
