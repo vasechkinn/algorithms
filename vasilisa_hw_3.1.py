@@ -23,6 +23,10 @@ class Autor:
         self.name = name
         self.surname = surname 
 
+    def __str__(self):
+        return f"{self.name, self.surname}"
+    
+
 class Book:
     def __init__(self, name_book: str, autor: Autor,
                  number_of_pages: int):
@@ -35,3 +39,7 @@ class Book:
             return f'страница успешно открыта'
         else:
             return f'fatal((('
+        
+    def __str__(self):
+        return f"{self.name_book, self.autor, self.number_of_pages}"
+    
