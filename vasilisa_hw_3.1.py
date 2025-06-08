@@ -65,3 +65,9 @@ class PassengerPlane:
         self.number_passengers = number_passengers
         self.current_height = current_height
         self.current_speed = current_speed
+
+    def airplane_takeoff(self):
+        if self.current_height == 0:
+            print('самолет взлетает')
+        else:
+            print('высота больше 0, самолет уже взлетел')
