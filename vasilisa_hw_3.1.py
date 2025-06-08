@@ -67,11 +67,7 @@ class PassengerPlane:
         self.current_speed = current_speed
 
     def __str__(self):
-        return f'{self.aircraft_manufacturer, self.aircraft_model,
-                  self.aircraft_capacity,
-                  self.number_passengers, 
-                  self.current_height,
-                  self.current_speed}'
+        return f"{self.aircraft_manufacturer, self.aircraft_model, self.aircraft_capacity, self.number_passengers, self.current_height, self.current_speed}"
 
     def airplane_takeoff(self):
         if self.current_height == 0:
@@ -88,18 +84,22 @@ class PassengerPlane:
     def height_change(self, height):
         if height >= 0 and height <= 12000:
             self.current_height = height
-            print(self.current_speed)
+            print('новая высота: ', self.current_height)
         else:
             print('недопустимая высота')
 
     def speed_change(self, speed):
         if speed >= 0 and speed <= 1100:
             self.current_speed = speed
-            print(self.current_speed)
+            print('новая скорость: ', self.current_speed)
         else:
             print('fatal speed((((')
 
 plane1 = PassengerPlane('manufacturer', 'model', 15, 9, 2000, 150)
-speed = 250
-height = 1000
 print(plane1)
+
+speed = PassengerPlane.speed_change(plane1, 500)
+height = PassengerPlane.height_change(plane1, 80000)
+
+takeoff = PassengerPlane.airplane_takeoff(plane1)
+landing = PassengerPlane.landing_the_plane(plane1)
