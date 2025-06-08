@@ -77,3 +77,10 @@ class PassengerPlane:
             print('начало посадки')
         else:
             print('самолет уже приземлился')
+
+    def height_change(self, height):
+        if height >= 0 and height <= 12000:
+            self.current_height = height
+            print(self.current_speed)
+        else:
+            print('недопустимая высота')
