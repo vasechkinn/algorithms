@@ -91,3 +91,8 @@ class PassengerPlane:
             print(self.current_speed)
         else:
             print('fatal speed((((')
+
+plane1 = PassengerPlane('manufacturer', 'model', 15, 9, 2000, 150)
+speed = 250
+height = 1000
+print(plane1)
