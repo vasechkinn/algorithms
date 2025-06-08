@@ -66,6 +66,13 @@ class PassengerPlane:
         self.current_height = current_height
         self.current_speed = current_speed
 
+    def __str__(self):
+        return f'{self.aircraft_manufacturer, self.aircraft_model,
+                  self.aircraft_capacity,
+                  self.number_passengers, 
+                  self.current_height,
+                  self.current_speed}'
+
     def airplane_takeoff(self):
         if self.current_height == 0:
             print('самолет взлетает')
