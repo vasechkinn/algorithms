@@ -71,3 +71,9 @@ class PassengerPlane:
             print('самолет взлетает')
         else:
             print('высота больше 0, самолет уже взлетел')
+
+    def landing_the_plane(self):
+        if self.current_height != 0:
+            print('начало посадки')
+        else:
+            print('самолет уже приземлился')
