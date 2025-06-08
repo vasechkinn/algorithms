@@ -84,3 +84,10 @@ class PassengerPlane:
             print(self.current_speed)
         else:
             print('недопустимая высота')
+
+    def speed_change(self, speed):
+        if speed >= 0 and speed <= 1100:
+            self.current_speed = speed
+            print(self.current_speed)
+        else:
+            print('fatal speed((((')
