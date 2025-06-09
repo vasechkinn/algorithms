@@ -143,21 +143,24 @@ class TrackList:
 
 
     def del_track(self, track):
-
+        count = 0
         for i in range(len(self.other_tracks)):
             if track == self.other_tracks[i]:
-                self.other_tracks.pop(i)
+                count += 1
+                break
 
+        self.other_tracks.pop(count)
         return self.other_tracks
 
     def track_playback(self, playback_track):
-        self.other_tracks.append(self.first_track).append(self.popular_track).append(self.last_track)
+        self.other_tracks.append(self.first_track)
+        self.other_tracks.append(self.popular_track)
+        self.other_tracks.append(self.last_track)
 
         for i in range(len(self.other_tracks)):
             if playback_track == self.other_tracks[i]:
                 print('play>>', playback_track)
-            else:
-                print('error')
+                break
 
 class MusicAlbum:
     def __init__(self, executer: Executor, album_name: str,
@@ -169,4 +172,14 @@ class MusicAlbum:
 
     def __str__(self):
         return f"{str(self.executer), self.album_name, self.genre, str(self.track_list)}"
-   
+
+
+exe = Executor('exe', 'exe', 2015)
+tracks = TrackList('first', 'pop', 'last', ['1', '2', '3'])
+
+new_track = tracks.add_track('888')
+del_track = tracks.del_track('2')
+play = tracks.track_playback('888')
+
+alb1 = MusicAlbum(exe, 'album', 'hz', tracks)
+print(alb1)
