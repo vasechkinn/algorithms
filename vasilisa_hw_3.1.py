@@ -119,3 +119,6 @@ class Executor:
         self.name = name
         self.surname = surname
         self.year_beginning_career = year_beginning_career
+
+    def __str__(self):
+        return f"{self.name, self.surname, self.year_beginning_career}"
