@@ -128,6 +128,9 @@ class TrackList:
         self.first_track = first_track
         self.popular_track = popular_track
         self.last_track = last_track  
+
+    def __str__(self):
+        return f"{self.first_track, self.popular_track, self.last_track}"
     
 class MusicAlbum:
     def __init__(self, executer: Executor, album_name: str,
