@@ -1,23 +1,22 @@
-# class Animals:
-#     def __init__(self, name: str, 
-#                  type_of_animal: str,
-#                 age: int
-#                 ):
-#         self.name = name
-#         self.type_of_animal = type_of_animal
-#         self.age = age
+class Animal:
+    def __init__(self, name: str, 
+                 type: str,
+                age: int
+                ):
+        self.name = name
+        self.type = type
+        self.age = age
 
-#     def __str__(self):
-#         return f"{self.name, self.type_of_animal, self.age}"
+    def __str__(self):
+        return f"{self.name, self.type, self.age}"
     
-#     def sound_animal(sound):
-#         return sound
+    def play_sound(self, sound):
+        print(sound)
     
-# cat = Animals('Caticat', 'cat', 5)
-# print(cat)
+cat = Animal('Caticat', 'cat', 5)
+print(cat)
 
-# sound = Animals.sound_animal(input('input sound: '))
-# print(sound)
+sound = cat.play_sound(input('input sound: '))
 
 # 2 *************************************************
 # class Autor:
