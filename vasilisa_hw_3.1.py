@@ -130,3 +130,6 @@ class MusicAlbum:
         self.album_name = album_name
         self.genre = genre
         self.track_list = track_list
+
+    def __str__(self):
+        return f"{str(self.executer), self.album_name, self.genre, str(self.track_list)}"
