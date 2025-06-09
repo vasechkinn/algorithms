@@ -124,10 +124,11 @@ class Executor:
         return f"{self.name, self.surname, self.year_beginning_career}"
     
 class TrackList:
-    def __init__(self, first_track: str, popular_track: str, last_track: str):
+    def __init__(self, first_track: str, popular_track: str, last_track: str, other_tracks: list):
         self.first_track = first_track
         self.popular_track = popular_track
         self.last_track = last_track  
+        self.other_tracks = other_tracks
 
     def __str__(self):
         return f"{self.first_track, self.popular_track, self.last_track}"
