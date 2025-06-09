@@ -122,3 +122,11 @@ class Executor:
 
     def __str__(self):
         return f"{self.name, self.surname, self.year_beginning_career}"
+    
+class MusicAlbum:
+    def __init__(self, executer: Executor, album_name: str,
+                 genre: str, track_list: TrackList):
+        self.executer = executer
+        self.album_name = album_name
+        self.genre = genre
+        self.track_list = track_list
