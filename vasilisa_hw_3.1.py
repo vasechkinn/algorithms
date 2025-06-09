@@ -134,11 +134,20 @@ class TrackList:
         return f"{self.first_track, self.popular_track, self.last_track, self.other_tracks}"
     
     def add_track(self, new_track):
-        
+
         if new_track != '':
             self.other_tracks.append(new_track)
         else:
             print('net :()')
+
+    def del_track(self, track):
+
+        for i in range(len(self.other_tracks)):
+            if track == self.other_tracks[i]:
+                self.other_tracks.pop(i)
+
+        return self.other_tracks
+
 
 class MusicAlbum:
     def __init__(self, executer: Executor, album_name: str,
