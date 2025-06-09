@@ -131,8 +131,15 @@ class TrackList:
         self.other_tracks = other_tracks
 
     def __str__(self):
-        return f"{self.first_track, self.popular_track, self.last_track}"
+        return f"{self.first_track, self.popular_track, self.last_track, self.other_tracks}"
     
+    def add_track(self, new_track):
+        
+        if new_track != '':
+            self.other_tracks.append(new_track)
+        else:
+            print('net :()')
+
 class MusicAlbum:
     def __init__(self, executer: Executor, album_name: str,
                  genre: str, track_list: TrackList):
@@ -143,3 +150,4 @@ class MusicAlbum:
 
     def __str__(self):
         return f"{str(self.executer), self.album_name, self.genre, str(self.track_list)}"
+   
