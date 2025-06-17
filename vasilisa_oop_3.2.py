@@ -30,4 +30,9 @@ class Vector2D:
     
     def __add__(self, other: 'Vector2D'):
         if self == other:
+            return Vector2D(self.start, Point(self.end.x + other.end.x, self.end.y + other.end.y))
+        
+    def __sub__(self, other: 'Vector2D'):
+        if self == other:
             return Vector2D(self.start, Point(self.end.x - other.end.x, self.end.y - other.end.y))
+        
