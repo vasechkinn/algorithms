@@ -75,34 +75,48 @@
 # print('len: ', v1.len())
 
 # 2 /***************************************************
-class Money:
-    def __init__(self, dollars: int, cents: int):
-        # self.dollars = dollars
-        # self.cents = cents
+# class Money:
+#     def __init__(self, dollars: int, cents: int):
+#         # self.dollars = dollars
+#         # self.cents = cents
 
-        self.dollars = dollars + cents // 100
-        self.cents = cents % 100
+#         self.dollars = dollars + cents // 100
+#         self.cents = cents % 100
 
-    def __add__(self, other: 'Money'):
-        new_cents = self.cents + other.cents
-        new_dollars = self.dollars + other.dollars
+#     def __add__(self, other: 'Money'):
+#         new_cents = self.cents + other.cents
+#         new_dollars = self.dollars + other.dollars
 
-        return Money(new_dollars, new_cents)
+#         return Money(new_dollars, new_cents)
     
-    def __sub__(self, other:'Money'):
-        """
-        self - other
-        """
-        new_cents = self.cents - other.cents
-        new_dollars = self.dollars - other.dollars
+#     def __sub__(self, other:'Money'):
+#         """
+#         self - other
+#         """
+#         new_cents = self.cents - other.cents
+#         new_dollars = self.dollars - other.dollars
 
-        return Money(new_dollars, new_cents)
+#         return Money(new_dollars, new_cents)
     
+#     def __str__(self):
+#         return (f'dollars: {self.dollars}; '
+#                 f'cents: {self.cents}')
+    
+# m1 = Money(1, 120)
+# m2 = Money(2, 190)
+# print(m1 + m2)
+# print(m1 - m2)
+
+# 3 *************************************************
+class Time:
+    def __init__(self, hours: int, minutes: int, seconds: int):
+        sum_seconds = hours * 3600 + minutes * 60 + seconds
+        self.hours = sum_seconds // 3600
+        self.minutes = minutes % 3600 // 60
+        self.seconds = sum_seconds % 60
+
     def __str__(self):
-        return (f'dollars: {self.dollars}; '
-                f'cents: {self.cents}')
-    
-m1 = Money(1, 120)
-m2 = Money(2, 190)
-print(m1 + m2)
-print(m1 - m2)
+        return f'Time: {self.hours}:{self.minutes}:{self.seconds}'
+
+m1 = Time(0, 61, 80)
+print(m1)
