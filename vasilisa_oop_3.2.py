@@ -88,3 +88,21 @@ class Money:
         new_dollars = self.dollars + other.dollars
 
         return Money(new_dollars, new_cents)
+    
+    def __sub__(self, other:'Money'):
+        """
+        self - other
+        """
+        new_cents = self.cents - other.cents
+        new_dollars = self.dollars - other.dollars
+
+        return Money(new_dollars, new_cents)
+    
+    def __str__(self):
+        return (f'dollars: {self.dollars}; '
+                f'cents: {self.cents}')
+    
+m1 = Money(1, 120)
+m2 = Money(2, 190)
+print(m1 + m2)
+print(m1 - m2)
