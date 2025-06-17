@@ -112,11 +112,21 @@ class Time:
     def __init__(self, hours: int, minutes: int, seconds: int):
         sum_seconds = hours * 3600 + minutes * 60 + seconds
         self.hours = sum_seconds // 3600
-        self.minutes = minutes % 3600 // 60
+        self.minutes = (sum_seconds % 3600) // 60
         self.seconds = sum_seconds % 60
 
     def __str__(self):
         return f'Time: {self.hours}:{self.minutes}:{self.seconds}'
+    
+    def __add__(self, other: "Time"):
+        new_sum = self.len() + other.len()
 
-m1 = Time(0, 61, 80)
-print(m1)
+        return Time(0, 0, new_sum)
+    
+    def len(self):
+        return self.hours * 3600 + self.minutes * 60 + self.seconds
+
+m1 = Time(0, 7, 0)
+m2 = Time(1, 8, 2)
+print('+: ', m1 + m2)
+print(m1.len())
