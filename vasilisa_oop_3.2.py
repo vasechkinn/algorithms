@@ -53,3 +53,8 @@ class Vector2D:
         cor_vector = self.coord()
 
         return (cor_vector.x ** 2 + cor_vector.y ** 2) ** 0.5
+    
+    def __str__(self):
+        return (f'Vector2D\n'
+                f'start: {self.start}\n'
+                f'end: {self.end}')
