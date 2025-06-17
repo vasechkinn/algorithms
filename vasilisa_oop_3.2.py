@@ -24,3 +24,7 @@ class Vector2D:
     def __init__(self, start: Point, end: Point):
         self.start = start
         self.end = end
+
+    def __eq__(self, other: 'Vector2D'):
+        return self.start.x == other.start.x and self.start.y == other.start.y
+    
