@@ -31,10 +31,13 @@ class Vector2D:
     def __add__(self, other: 'Vector2D'):
         if self == other:
             return Vector2D(self.start, Point(self.end.x + other.end.x, self.end.y + other.end.y))
+        print('net :3')
         
     def __sub__(self, other: 'Vector2D'):
         if self == other:
             return Vector2D(self.start, Point(self.end.x - other.end.x, self.end.y - other.end.y))
+        else:
+            print('net :3')
         
     def __mul__(self, delta):
         new_start = Point(self.start.x * delta, self.start.y * delta)
@@ -55,6 +58,18 @@ class Vector2D:
         return (cor_vector.x ** 2 + cor_vector.y ** 2) ** 0.5
     
     def __str__(self):
-        return (f'Vector2D\n'
-                f'start: {self.start}\n'
+        return (f'start: {self.start}\n'
                 f'end: {self.end}')
+    
+ps1 = Point(0, 0)
+pe1 = Point(2, 2)
+v1 = Vector2D(ps1, pe1)
+
+ps2 = Point(0, 0)
+pe2 = Point(5, 5)
+v2 = Vector2D(ps2, pe2)
+
+print('*: ',v1 * 2)
+print('+: ', v1 + v2)
+print('-: ', v1 - v2)
+print('len: ', v1.len())
