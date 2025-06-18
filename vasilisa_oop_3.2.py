@@ -183,36 +183,36 @@
 # print(p1 - p2)
 
 # 6 **************************************
-import random
-class Matrix:
-    def __init__(self, a: int, b: int, c: int, d: int):
-        self.a = a
-        self.b = b
-        self.c = c
-        self.d = d
+# import random
+# class Matrix:
+#     def __init__(self, a: int, b: int, c: int, d: int):
+#         self.a = a
+#         self.b = b
+#         self.c = c
+#         self.d = d
 
-    # def generate_matrix():
-    #     matrix = [[random.randint(1, 9) for _ in range(2)] for _ in range(2)]
-    #     return matrix
+#     # def generate_matrix():
+#     #     matrix = [[random.randint(1, 9) for _ in range(2)] for _ in range(2)]
+#     #     return matrix
 
-    def __add__(self, other: 'Matrix'):
-        matrix = [[self.a + other.a, self.b + other.b], [self.c + other.c, self.d + other.d]]
-        for i in matrix:
-            print(*i)
+#     def __add__(self, other: 'Matrix'):
+#         matrix = [[self.a + other.a, self.b + other.b], [self.c + other.c, self.d + other.d]]
+#         for i in matrix:
+#             print(*i)
     
-    def __mul__(self, delta: int):
-        matrix = [[self.a * delta, self.b * delta], [self.c * delta, self.d * delta]]
-        for i in matrix:
-            print(*i)
+#     def __mul__(self, delta: int):
+#         matrix = [[self.a * delta, self.b * delta], [self.c * delta, self.d * delta]]
+#         for i in matrix:
+#             print(*i)
 
-    def len(self):
-        return 4
+#     def len(self):
+#         return 4
     
-m1 = Matrix(1, 2, 3, 4)
-m2 = Matrix(1, 2, 3, 4)
-print('sum matrix:')
-summ = m1 + m2
-print('\nproizv matrix:')
-proizv = m1 * 3
-print('\nlen:')
-print(m1.len())
+# m1 = Matrix(1, 2, 3, 4)
+# m2 = Matrix(1, 2, 3, 4)
+# print('sum matrix:')
+# summ = m1 + m2
+# print('\nproizv matrix:')
+# proizv = m1 * 3
+# print('\nlen:')
+# print(m1.len())
