@@ -108,25 +108,76 @@
 # print(m1 - m2)
 
 # 3 *************************************************
-class Time:
-    def __init__(self, hours: int, minutes: int, seconds: int):
-        sum_seconds = hours * 3600 + minutes * 60 + seconds
-        self.hours = sum_seconds // 3600
-        self.minutes = (sum_seconds % 3600) // 60
-        self.seconds = sum_seconds % 60
+# class Time:
+#     def __init__(self, hours: int, minutes: int, seconds: int):
+#         sum_seconds = hours * 3600 + minutes * 60 + seconds
+#         self.hours = sum_seconds // 3600
+#         self.minutes = (sum_seconds % 3600) // 60
+#         self.seconds = sum_seconds % 60
 
-    def __str__(self):
-        return f'Time: {self.hours}:{self.minutes}:{self.seconds}'
+#     def __str__(self):
+#         return f'Time: {self.hours}:{self.minutes}:{self.seconds}'
     
-    def __add__(self, other: "Time"):
-        new_sum = self.len() + other.len()
+#     def __add__(self, other: "Time"):
+#         new_sum = self.len() + other.len()
 
-        return Time(0, 0, new_sum)
+#         return Time(0, 0, new_sum)
     
-    def len(self):
-        return self.hours * 3600 + self.minutes * 60 + self.seconds
+#     def len(self):
+#         return self.hours * 3600 + self.minutes * 60 + self.seconds
 
-m1 = Time(0, 7, 0)
-m2 = Time(1, 8, 2)
-print('+: ', m1 + m2)
-print(m1.len())
+# m1 = Time(0, 7, 0)
+# m2 = Time(1, 8, 2)
+# print('+: ', m1 + m2)
+# print(m1.len())
+
+# 5 **************************************************
+# class Color:
+#     def __init__(self, R: int, G: int, B: int, name: str):
+#         self.R = R
+#         self.G = G
+#         self.B = B
+#         self.name = name
+
+#     def __str__(self):
+#         return (f"red: {self.R}\n"
+#                 f"green: {self.G}\n"
+#                 f"blue: {self.B}\n"
+#                 f"{self.name}")
+    
+#     def __eq__(self, other: 'Color'):
+#         return self.R == other.R and self.G == other.G and self.B == other.B
+
+# class ColoredPoint(Point):
+#     def __init__(self, x, y, color: 'Color'):
+#         super().__init__(x, y)
+#         self.color = color
+
+#     def __add__(self, other: 'ColoredPoint'):
+#         if self.color == other.color:
+#             return ColoredPoint(self.x + other.x, self.y + other.y, self.color.name)
+#         else:
+#             new_color = Color(0, 0, 0, 'black')
+#             return ColoredPoint(self.x + other.x, self.y + other.y, new_color.name)
+        
+#     def __sub__(self, other: 'ColoredPoint'):
+#         if self.color == other.color:
+#             return ColoredPoint(self.x - other.x, self.y - other.y, self.color.name)
+#         else:
+#             new_color = Color(0, 0, 0, 'black')
+#             return ColoredPoint(self.x - other.x, self.y - other.y, new_color.name)
+    
+#     def len(self):
+#         print('не поняла какая у точки должна быть длина')
+
+#     def __str__(self):
+#         return (f"coloredpoint: {self.x}, {self.y}, {self.color}")
+    
+# color1 = Color(255, 255, 255, 'white')
+# color2 = Color(255, 255, 255, 'white')
+
+# p1 = ColoredPoint(1, 2, color1)
+# p2 = ColoredPoint(2, 3, color2)
+
+# print(p1 + p2)
+# print(p1 - p2)
