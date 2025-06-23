@@ -159,20 +159,54 @@ class People:
         else:
             raise TypeError("fatal(, ne int")
 
+
 class Journal:
-    def __init__(self, math: list, russian: list, informatics: list):
-        self.__math = math
-        self.__russian = russian
-        self.__informatics = informatics
+    def __init__(self):
+        self.__math = []
+        self.__russian = []
+        self.__informatics = []
 
     def __repr__(self):
         return (f"math: {self.__math}; "
                 f"russian: {self.__russian}; "
                 f"informatics: {self.__informatics}; ")
     
+    def append_math(self, elem: int):
+        if isinstance(elem, int):
+
+            if elem >= 2 and elem <= 5:
+                self.__math.append(elem)
+            else:
+                raise ValueError('net :()')
+            
+        else:
+            raise TypeError('ne int :3')
+    
+    def append_rus(self, elem: int):
+        if isinstance(elem, int):
+
+            if elem >= 2 and elem <= 5:
+                self.__russian.append(elem)
+            else:
+                raise ValueError('net :()')
+            
+        else:
+            raise TypeError('ne int :3')
+        
+    def append_inf(self, elem: int):
+        if isinstance(elem, int):
+
+            if elem >= 2 and elem <= 5:
+                self.__informatics.append(elem)
+            else:
+                raise ValueError('net :()')
+            
+        else:
+            raise TypeError('ne int :3')
+    
     def mean_math(self):
         if len(self.__math) == 0:
-            return
+            return 'пока нет оценок'
         
         count = 0
         for i in range(len(self.__math)):
@@ -182,7 +216,7 @@ class Journal:
     
     def mean_russian(self):
         if len(self.__russian) == 0:
-            return
+            return 'пока нет оценок'
         
         count = 0
         for i in range(len(self.__russian)):
@@ -192,13 +226,14 @@ class Journal:
     
     def mean_informatics(self):
         if len(self.__informatics) == 0:
-            return
+            return 'пока нет оценок'
         
         count = 0
         for i in range(len(self.__informatics)):
             count += self.__informatics[i]
 
         return round(count / len(self.__informatics), 2)
+
 
 class Student:
     def __init__(self, people: People, class_stud: str, journal: Journal):
@@ -210,13 +245,15 @@ class Student:
         return (f"student: \n{self.__people}\n"
                 f"class: {self.__class_stud}\n"
                 f"journal: \n{self.__journal}")
-    
+
+
 p1 = People('lol', 'kek', 12)
 p1.set_age(15)
 m = [2, 4, 5]
 r = [2, 2, 2]
 inf = [2, 4, 5]
-jour = Journal(m, r, inf)
+jour = Journal()
+jour.append_inf(4)
 print('mean math: ', jour.mean_math())
 
 stud = Student(p1, '2a', jour)
