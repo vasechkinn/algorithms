@@ -71,3 +71,48 @@ from __future__ import annotations
 # acc = BankAccount(user, 15.1)
 # print(acc.get_balance())
 # print(acc.set_balance(-25.0))
+
+#2 ********************************************************
+# class Rectangle:
+#     def __init__(self, height: float, width: float):
+#         self.__height = height
+#         self.__width = width
+
+#     def __str__(self):
+#         return (f"height: {self.__height}"
+#                 f"width: {self.__width}")
+    
+#     def get_height(self):
+#         return f"height: {self.__height}"
+    
+#     def get_width(self):
+#         return f"width: {self.__width}"
+    
+#     def set_height(self, delta: float):
+#         if isinstance(delta, float):
+
+#             if (self.__height + delta) > 0:
+#                 return self.__height + delta
+#             else: return 'математика за пятый класс...'
+        
+#         else:
+#             raise TypeError('ne float :()')
+    
+#     def set_width(self, delta: float):
+#         if isinstance(delta, float):
+
+#             if (self.__width + delta) > 0:
+#                 return self.__width + delta
+#             else: return 'математика за пятый класс...'
+        
+#         else:
+#             raise TypeError('ne float :()')
+        
+#     def area(self):
+#         return f"area: {self.__height * self.__width}"
+
+# rect = Rectangle(5.0, 4.0)
+# print(rect.get_height())
+# print(rect.set_height(-15.0))
+# print(rect.get_width())
+# print(rect.area())
