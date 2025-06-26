@@ -342,3 +342,96 @@ from __future__ import annotations
 # city.set_temp(20, 0)
 # r = city.min_temp()
 # print(r)
+
+# 5 ***************************************************
+class People:
+    def __init__(self, name: str, surname:str, age: int):
+        self.__name = name
+        self.__surname = surname
+        self.__age = age
+
+    def __str__(self):
+        return f"name: {self.__name}\nsurname: {self.__surname}\nage: {self.__age}"
+
+    def get_age(self):
+        return f"age: {self.__age}"
+    
+    def get_name(self):
+        return f"name: {self.__name}"
+    
+    def get_surname(self):
+        return f"surname: {self.__surname}"
+
+    def set_name(self, new_name: str):
+        if isinstance(new_name, str):
+            self.__name = new_name
+        else:
+            raise TypeError("fatal(, ne str")
+        
+    def set_surname(self, new_surname: str):
+        if isinstance(new_surname, str):
+            self.__surname = new_surname
+        else:
+            raise TypeError("fatal(, ne str")
+        
+    def set_age(self, new_age: int):
+        if isinstance(new_age, int):
+
+            if new_age >= 16 and new_age < 100:
+                self.__age = new_age
+            else:
+                print('вы либо слишком юны, либо пора задуматься...')
+
+        else:
+            raise TypeError("fatal(, ne int")
+        
+class EmployeePayroll:
+    def __init__(self, people: People, salary: int,
+                 tax_rate: float):
+        self.__people = people
+        self.__salary = salary
+        self.__tax_rate = tax_rate
+        
+    def __str__(self):
+        return (f"people: {self.__people}\n"
+                f"salary: {self.__salary}\n"
+                f"tax_rate: {self.__tax_rate}")
+    
+    def get_salary(self):
+        return self.__salary
+    
+    def set_salary(self, new: int):
+        if isinstance(new, int):
+
+            if new >= 0:
+                self.__salary = new
+            else:
+                raise ValueError('сотрудники не дают зп в долг')
+            
+        else:
+            raise TypeError('ne int :3')
+        
+    def get_tax_rate(self):
+        return self.__tax_rate
+    
+    def set_tax_rate(self, rate: float):
+        if isinstance(rate, float):
+
+            if rate >= 0 and rate <= 1:
+                self.__tax_rate = rate
+            else:
+                raise ValueError('сотрудники не могут платить больше, чем заработали')
+            
+        else:
+            raise TypeError('ne float :3')
+        
+    def net_salary(self):
+        return round((self.__salary * (1 - self.__tax_rate)), 2)
+    
+    def annual_net(self):
+        return 12 * self.net_salary()
+    
+people = People('lol', 'lol', 12)
+nn = EmployeePayroll(people, 120, 0.5)
+print(nn.annual_net())
+print(nn.net_salary())
