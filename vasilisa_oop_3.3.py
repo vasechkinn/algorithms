@@ -118,143 +118,227 @@ from __future__ import annotations
 # print(rect.area())
 
 # 3 **************************************************************
-class People:
-    def __init__(self, name: str, surname:str, age: int):
-        self.__name = name
-        self.__surname = surname
-        self.__age = age
+# class People:
+#     def __init__(self, name: str, surname:str, age: int):
+#         self.__name = name
+#         self.__surname = surname
+#         self.__age = age
 
-    def __str__(self):
-        return f"name: {self.__name}\nsurname: {self.__surname}\nage: {self.__age}"
+#     def __str__(self):
+#         return f"name: {self.__name}\nsurname: {self.__surname}\nage: {self.__age}"
 
-    def get_age(self):
-        return f"age: {self.__age}"
+#     def get_age(self):
+#         return f"age: {self.__age}"
     
-    def get_name(self):
-        return f"name: {self.__name}"
+#     def get_name(self):
+#         return f"name: {self.__name}"
     
-    def get_surname(self):
-        return f"surname: {self.__surname}"
+#     def get_surname(self):
+#         return f"surname: {self.__surname}"
 
-    def set_name(self, new_name: str):
-        if isinstance(new_name, str):
-            self.__name = new_name
-        else:
-            raise TypeError("fatal(, ne str")
+#     def set_name(self, new_name: str):
+#         if isinstance(new_name, str):
+#             self.__name = new_name
+#         else:
+#             raise TypeError("fatal(, ne str")
         
-    def set_surname(self, new_surname: str):
-        if isinstance(new_surname, str):
-            self.__surname = new_surname
-        else:
-            raise TypeError("fatal(, ne str")
+#     def set_surname(self, new_surname: str):
+#         if isinstance(new_surname, str):
+#             self.__surname = new_surname
+#         else:
+#             raise TypeError("fatal(, ne str")
         
-    def set_age(self, new_age: int):
-        if isinstance(new_age, int):
+#     def set_age(self, new_age: int):
+#         if isinstance(new_age, int):
 
-            if new_age >= 5 and new_age < 20:
-                self.__age = new_age
-            else:
-                print('вы либо слишком юны, либо пора задуматься...')
+#             if new_age >= 5 and new_age < 20:
+#                 self.__age = new_age
+#             else:
+#                 print('вы либо слишком юны, либо пора задуматься...')
 
-        else:
-            raise TypeError("fatal(, ne int")
+#         else:
+#             raise TypeError("fatal(, ne int")
 
 
-class Journal:
-    def __init__(self):
-        self.__math = []
-        self.__russian = []
-        self.__informatics = []
+# class Journal:
+#     def __init__(self):
+#         self.__math = []
+#         self.__russian = []
+#         self.__informatics = []
 
-    def __repr__(self):
-        return (f"math: {self.__math}; "
-                f"russian: {self.__russian}; "
-                f"informatics: {self.__informatics}; ")
+#     def __repr__(self):
+#         return (f"math: {self.__math}; "
+#                 f"russian: {self.__russian}; "
+#                 f"informatics: {self.__informatics}; ")
     
-    def append_math(self, elem: int):
-        if isinstance(elem, int):
+#     def append_math(self, elem: int):
+#         if isinstance(elem, int):
 
-            if elem >= 2 and elem <= 5:
-                self.__math.append(elem)
-            else:
-                raise ValueError('net :()')
+#             if elem >= 2 and elem <= 5:
+#                 self.__math.append(elem)
+#             else:
+#                 raise ValueError('net :()')
             
-        else:
-            raise TypeError('ne int :3')
+#         else:
+#             raise TypeError('ne int :3')
     
-    def append_rus(self, elem: int):
-        if isinstance(elem, int):
+#     def append_rus(self, elem: int):
+#         if isinstance(elem, int):
 
-            if elem >= 2 and elem <= 5:
-                self.__russian.append(elem)
-            else:
-                raise ValueError('net :()')
+#             if elem >= 2 and elem <= 5:
+#                 self.__russian.append(elem)
+#             else:
+#                 raise ValueError('net :()')
             
-        else:
-            raise TypeError('ne int :3')
+#         else:
+#             raise TypeError('ne int :3')
         
-    def append_inf(self, elem: int):
-        if isinstance(elem, int):
+#     def append_inf(self, elem: int):
+#         if isinstance(elem, int):
 
-            if elem >= 2 and elem <= 5:
-                self.__informatics.append(elem)
-            else:
-                raise ValueError('net :()')
+#             if elem >= 2 and elem <= 5:
+#                 self.__informatics.append(elem)
+#             else:
+#                 raise ValueError('net :()')
             
-        else:
-            raise TypeError('ne int :3')
+#         else:
+#             raise TypeError('ne int :3')
     
-    def mean_math(self):
-        if len(self.__math) == 0:
-            return 'пока нет оценок'
+#     def mean_math(self):
+#         if len(self.__math) == 0:
+#             return 'пока нет оценок'
         
-        count = 0
-        for i in range(len(self.__math)):
-            count += self.__math[i]
+#         count = 0
+#         for i in range(len(self.__math)):
+#             count += self.__math[i]
 
-        return round(count / len(self.__math), 2)
+#         return round(count / len(self.__math), 2)
     
-    def mean_russian(self):
-        if len(self.__russian) == 0:
-            return 'пока нет оценок'
+#     def mean_russian(self):
+#         if len(self.__russian) == 0:
+#             return 'пока нет оценок'
         
-        count = 0
-        for i in range(len(self.__russian)):
-            count += self.__russian[i]
+#         count = 0
+#         for i in range(len(self.__russian)):
+#             count += self.__russian[i]
 
-        return round(count / len(self.__russian), 2)
+#         return round(count / len(self.__russian), 2)
     
-    def mean_informatics(self):
-        if len(self.__informatics) == 0:
-            return 'пока нет оценок'
+#     def mean_informatics(self):
+#         if len(self.__informatics) == 0:
+#             return 'пока нет оценок'
         
-        count = 0
-        for i in range(len(self.__informatics)):
-            count += self.__informatics[i]
+#         count = 0
+#         for i in range(len(self.__informatics)):
+#             count += self.__informatics[i]
 
-        return round(count / len(self.__informatics), 2)
-
-
-class Student:
-    def __init__(self, people: People, class_stud: str, journal: Journal):
-        self.__people = people
-        self.__class_stud = class_stud
-        self.__journal = journal
-
-    def __repr__(self):
-        return (f"student: \n{self.__people}\n"
-                f"class: {self.__class_stud}\n"
-                f"journal: \n{self.__journal}")
+#         return round(count / len(self.__informatics), 2)
 
 
-p1 = People('lol', 'kek', 12)
-p1.set_age(15)
-m = [2, 4, 5]
-r = [2, 2, 2]
-inf = [2, 4, 5]
-jour = Journal()
-jour.append_inf(4)
-print('mean math: ', jour.mean_math())
+# class Student:
+#     def __init__(self, people: People, class_stud: str, journal: Journal):
+#         self.__people = people
+#         self.__class_stud = class_stud
+#         self.__journal = journal
 
-stud = Student(p1, '2a', jour)
-print(stud)
+#     def __repr__(self):
+#         return (f"student: \n{self.__people}\n"
+#                 f"class: {self.__class_stud}\n"
+#                 f"journal: \n{self.__journal}")
+
+
+# p1 = People('lol', 'kek', 12)
+# p1.set_age(15)
+# m = [2, 4, 5]
+# r = [2, 2, 2]
+# inf = [2, 4, 5]
+# jour = Journal()
+# jour.append_inf(4)
+# print('mean math: ', jour.mean_math())
+
+# stud = Student(p1, '2a', jour)
+# print(stud)
+
+# 4 ***************************************************
+# class TemperatureLog:
+#     def __init__(self, city: str):
+#         self.__city = city
+#         self.__temperatures = [0, 0, 0, 0, 0, 0, 0]
+
+#     def __repr__(self):
+#         return (f"city: {self.__city}\n"
+#                 f"temp: {self.__temperatures}")
+    
+#     def get_city(self):
+#         return self.__city
+    
+#     def set_city(self, city: str):
+#         if isinstance(city, str):
+#             self.__city = city
+#         else:
+#             raise TypeError('ne str :()')
+        
+#     def get_temp(self):
+#         return self.__temperatures
+    
+#     def check_index(self, index):
+#         if isinstance(index, int):
+            
+#             if index >= 0 and index <= 6:
+#                 return index
+#             else:
+#                 raise ValueError('going out of range')
+        
+#         else:
+#             raise TypeError('ne int (')
+        
+#     def check_temp(self, temp):
+#         if isinstance(temp, int):
+            
+#             if temp >= -100 and temp <= 100:
+#                 return temp
+#             else:
+#                 raise ValueError('going out of range temperature')
+        
+#         else:
+#             raise TypeError('ne int (')
+
+#     def set_temp(self, new_temp: int, index: int):
+#         """
+#         0 - понедельник, 6 - воскресенье
+#         self.__temperatures = [0, 0, 0, 0, 0, 0, 0] по умолчанию
+#         """
+#         ind = self.check_index(index)
+#         temp = self.check_temp(new_temp)
+#         self.__temperatures[ind] = temp
+
+#         return self.__temperatures
+
+#     def average_temp(self):
+#         summ = 0
+#         for i in range(7):
+#             summ += self.__temperatures[i]
+
+#         return round(summ / 7, 2)
+    
+#     def max_temp(self):
+#         maxx = self.__temperatures[0]
+#         for i in range(7):
+#             if self.__temperatures[i] > maxx:
+#                 maxx = self.__temperatures[i]
+
+#         return maxx
+
+#     def min_temp(self):
+#         minn = self.__temperatures[0]
+#         for i in range(7):
+#             if self.__temperatures[i] < minn:
+#                 minn = self.__temperatures[i]
+
+#         return minn
+
+# city = TemperatureLog(':3')
+# print(city)
+# city.set_temp(20, 0)
+# r = city.min_temp()
+# print(r)
