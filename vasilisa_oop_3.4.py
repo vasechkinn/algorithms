@@ -427,3 +427,111 @@ import datetime
 # print(car)
 # new = Wheel(15, 'летняя')
 # car.replace_wheel(0, new)
+
+# 4 /////////////////////////////////////////////////
+def check_str(elem):
+        if not isinstance(elem, str):
+            raise TypeError('ne str')
+        
+class Client:
+    def __init__(self,client_id: str,
+                 name: str,
+                 email: str,
+                 orders: list[Order],
+                 count: int
+                 ):
+        check_str(client_id)
+        self.__client_id = client_id
+
+        check_str(name)
+        self.__name = name
+
+        check_str(email)
+        self.__email = email
+        
+        self.__orders = orders
+
+        self.__ord_count = count
+
+    def place_order(self, order: Order):
+        
+        for i in range(len(self.__orders)):
+            if self.__orders[i] == order:
+                self.__ord_count += 1
+                return
+
+        self.__orders.append(order)
+
+    def get_orders(self):
+        list = [i for i in self.__orders]
+
+        return list
+    
+    def __repr__(self):
+        return (f"client: {self.__client_id}\n"
+                f"name: {self.__name}\n"
+                f"email: {self.__email}\n"
+                f"orders: {self.__orders}")
+        
+
+class OrderItem:
+    def __init__(self, item_name: str,
+                 count: int):
+        check_str(item_name)
+        self.__item_name = item_name
+
+        self.check_int(count)
+        self.__count = count
+        
+    def check_int(self, elem):
+        if not isinstance(elem, int):
+            raise TypeError('ne int')
+        
+    def __repr__(self):
+        return (f"name: {self.__item_name}, count: {self.__count}")
+    
+    def get_name(self):
+        return self.__item_name
+    
+    def get_count(self):
+        return self.__count
+    
+    def set_count(self):
+        self.__count += 1
+
+
+class Order:
+    def __init__(self,
+                 order_id: str,
+                 client: Client,
+                 items: list[OrderItem],
+                 ):
+        check_str(order_id)
+        self.__order_id = order_id
+
+        data = datetime.now()
+        self.__date = data
+        self.__client = client
+        self.__items = items
+
+    def __eq__(self, value: Order):
+        return (self.__order_id == value.__order_id and 
+                self.__client == value.__client and 
+                self.__items == value.__items)
+    
+    def add_item(self, order_item: OrderItem):
+        for i in range(len(self.__items)):
+            if self.__items[i].get_name() == order_item.get_name():
+                self.__items[i].set_count()
+                return
+        
+        self.__items.append(order_item)
+
+    def get_summary(self):
+        return (f"ordr id: {self.__order_id} from {self.__date} for {self.__client} item: {self.__items}")
+    
+    def __repr__(self):
+        return (f"{self.__order_id}\n"
+                f"{self.__date}"
+                f"{self.__items}\n"
+                f"{self.__client}")
