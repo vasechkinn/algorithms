@@ -1,3 +1,4 @@
+# 1 ////////////////////////////////////////////////////////
 class PersonCard:
     def __init__(self, name: str,
                  age: int,
@@ -176,3 +177,82 @@ linked_list.insert_person_at(1, person)
 linked_list.remove_person(person)
 linked_list.remove_last_person()
 linked_list.remove_first_person()
+
+
+# 2 ////////////////////////////////////////////////////////
+class ProjectTask:
+    def __init__(self, description: str, date: str):
+        self.__description = description
+        self.__date = date
+
+    
+class TaskStack:
+    class Node:
+        def __init__(self, data: any, prev: any = None):
+            self.data = data
+            self.prev = prev
+
+    def __init__(self):
+        self.__top = None
+        self.__count = 0
+
+    def is_empty(self)-> bool:
+        """
+        Возвращает true, если стек пуст, иначе false
+        :return: true | false
+        """
+        return self.__count == 0
+
+    def push(self, task: ProjectTask) -> None:
+        """
+        Добавляет новую задачу task на вершину стека.
+        :return: none
+        """
+        node = TaskStack.Node(data = task, prev = None)
+        self.__count += 1
+
+        if self.is_empty():
+            self.__top = node
+            return
+        
+        node.prev = self.__top
+        self.__top = node
+
+    def pop(self) -> ProjectTask | None:
+        """
+        Удаляет и возвращает задачу с вершины стека. 
+        Если стек пуст, возвращает None.
+        """
+        if self.is_empty():        
+            return None
+        
+        node = self.__top
+        self.__top = self.__top.prev
+        self.__count -= 1
+        return node.data
+    
+    def peek(self) -> ProjectTask | None:
+        """
+        Возвращает задачу с вершины стека без её удаления.
+        Если стек пуст, возвращает None
+        :return: Node.data | None
+        """
+        if self.is_empty():        
+            return None
+        
+        return self.__top.data
+    
+    def count(self) -> int:
+        """
+        Возвращает количество задач в стеке.
+        :return: count
+        """
+        return self.__count
+    
+task = ProjectTask('123', '123')
+stack = TaskStack()
+stack.is_empty()
+stack.push(task)
+stack.peek()
+stack.pop()
+stack.count()
