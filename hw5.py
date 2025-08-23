@@ -15,7 +15,7 @@ class PersonCard:
 class PersonList:
 
     class Node:
-        def __init__(self, data: any, next: any):
+        def __init__(self, data: any, next: any = None):
             self.data = data
             self.next = next
     
@@ -111,14 +111,21 @@ class PersonList:
         if self.is_empty():
             return None
         
+        self.__count -= 1
+
+        
+        if self.__count == 1:
+            node = self.__head
+            self.__head = None
+            return None
+
         iterator = self.__head
 
         while iterator.next.next is not None:
             iterator = iterator.next
 
-        node = iterator.next.next
+        node = iterator.next
         iterator.next = None
-        self.__count -= 1
         return node
     
     def remove_person(self, person: PersonCard) -> None:
@@ -130,11 +137,10 @@ class PersonList:
 
         if self.is_empty():
             return None
-        
-        self.__count -= 1
 
         if self.__head.data == person:
             self.__head = self.__head.next
+            self.__count -= 1
             return
         
         iterator = self.__head
@@ -142,6 +148,7 @@ class PersonList:
 
             if iterator.next.data == person:
                 iterator.next = iterator.next.next
+                self.__count -= 1
                 return None
 
             iterator = iterator.next
@@ -153,4 +160,19 @@ class PersonList:
         self.__head = None
         self.__count = 0
 
+    def total_people(self) -> int:
+        """
+        Возвращает количество карточек в списке.
+        :return: count
+        """
+        return self.__count
     
+person = PersonCard('name', 10, '123')
+linked_list = PersonList()
+linked_list.add_person(person)
+linked_list.append_person(person)
+linked_list.clear_all()
+linked_list.insert_person_at(1, person)
+linked_list.remove_person(person)
+linked_list.remove_last_person()
+linked_list.remove_first_person()
