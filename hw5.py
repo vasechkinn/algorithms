@@ -29,7 +29,7 @@ class PersonList:
     def is_empty(self):
         return self.__count == 0
 
-    def append_person(self, data: PersonCard):
+    def append_person(self, data: PersonCard) -> None:
         """
         Добавляет новую карточку персоны person в конец списка
         :paran data: elem class PersonCard
@@ -47,7 +47,7 @@ class PersonList:
 
         iterator.next = node
         
-    def add_person(self, data: PersonCard):
+    def add_person(self, data: PersonCard) -> None:
         """
         Добавляет новую карточку персоны person
         в начало списка
@@ -65,7 +65,15 @@ class PersonList:
 
     def insert_person_at(self, index: int,
                          data: PersonCard,
-                         ):
+                         ) -> None:
+        """
+        Вставляет новую карточку персоны person на позицию с 
+        указанным индексом. Если индекс 
+        выходит за границы списка, генерируется исключение. 
+        Начинаем с 1
+        :param index: порядковый номер элемента, начинается с 1
+        :param data: elem class PersonCard
+        """
         node = PersonList.Node(data = data, next = None)
         self.__check_type(index, int)
         if index >= self.__count or index < 1:  raise IndexError('выход за границы диапазона')
@@ -80,3 +88,69 @@ class PersonList:
         self.__count += 1
         node.next = iterator.next
         iterator.next = node
+
+    def remove_first_person(self)-> Node | None:
+        """
+        Удаляет первую карточку в списке и возвращает её.
+        :return: Node(data, next)
+        """
+        if self.is_empty():
+            return None
+        
+        node = self.__head
+        self.__head = self.__head.next
+        self.__count -= 1
+        return node
+    
+    def remove_last_person(self) -> Node | None:
+        """
+        Удаляет последнюю карточку в списке и возвращает её
+        :raturn: Node(data, next)
+        """
+
+        if self.is_empty():
+            return None
+        
+        iterator = self.__head
+
+        while iterator.next.next is not None:
+            iterator = iterator.next
+
+        node = iterator.next.next
+        iterator.next = None
+        self.__count -= 1
+        return node
+    
+    def remove_person(self, person: PersonCard) -> None:
+        """
+        Удаляет карточку персоны,
+        соответствующую переданной person.
+        :param person: elem class PersonCard
+        """
+
+        if self.is_empty():
+            return None
+        
+        self.__count -= 1
+
+        if self.__head.data == person:
+            self.__head = self.__head.next
+            return
+        
+        iterator = self.__head
+        while iterator.next is not None:
+
+            if iterator.next.data == person:
+                iterator.next = iterator.next.next
+                return None
+
+            iterator = iterator.next
+
+    def clear_all(self) -> None:
+        """
+        Очищает список, удаляя все карточки
+        """
+        self.__head = None
+        self.__count = 0
+
+    
