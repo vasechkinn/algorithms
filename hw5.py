@@ -4,9 +4,17 @@ class PersonCard:
                  age: int,
                  occupation: str,
                  ):
+        self.__check_type(name, str)
         self.__name = name
+
+        self.__check_type(age, int)
         self.__age = age
+
+        self.__check_type(occupation, int)
         self.__occupation = occupation
+
+    def __check_type(self, elem, type):
+        if not isinstance(elem, type):  raise TypeError('ne tot tip')
 
     def __str__(self):
         return (f"name: {self.__name}"
@@ -182,10 +190,15 @@ linked_list.remove_first_person()
 # 2 ////////////////////////////////////////////////////////
 class ProjectTask:
     def __init__(self, description: str, date: str):
+        self.__check_type(description, str)
         self.__description = description
+
+        self.__check_type(date, str)
         self.__date = date
 
-    
+    def __check_type(self, elem, type):
+        if not isinstance(elem, type):  raise TypeError('ne tot tip')
+
 class TaskStack:
     class Node:
         def __init__(self, data: any, prev: any = None):
@@ -256,3 +269,92 @@ stack.push(task)
 stack.peek()
 stack.pop()
 stack.count()
+
+# 3 ////////////////////////////////////////////////////////
+class PrintDocument:
+    def __init__(self, title: str, num_of_pages: int):
+        self.__check_type(title, str)
+        self.__title = title
+
+        self.__check_type(num_of_pages, int)
+        self.__num_of_pages = num_of_pages
+
+    def __check_type(self, elem, type):
+        if not isinstance(elem, type):  raise TypeError('ne tot tip')
+
+class PrintQueue:
+
+    class Node:
+        def __init__(self, data: any, prev: any = None):
+            self.data = data
+            self.prev = prev
+
+    def __init__(self):
+        self.__head = None
+        self.__tail = None
+        self.__count = 0
+
+    def is_empty(self) -> bool:
+        """
+        Возвращает true, если очередь пуста, иначе false
+        :return: true | false
+        """
+        return self.__count == 0
+    
+    def enqueue(self, document: PrintDocument) -> None:
+        """
+        Добавляет документ document в конец очереди
+        """
+        node = PrintQueue.Node(data = document, prev = None)
+        self.__count += 1
+
+        if self.is_empty():
+            self.__head = node
+            self.__tail = node
+            return
+        
+        self.__tail.prev = node
+        self.__tail = node
+
+    def dequeue(self) -> PrintDocument | None:
+        """
+        Удаляет и возвращает первый документ из очереди.
+        Если очередь пуста, возвращает None.
+        :return: PrintDocument | None
+        """
+        if self.is_empty():
+            return None
+        
+        document = self.__head
+        self.__head = self.__head.prev
+        self.__count -= 1
+
+        if self.__head is None:
+            self.__tail = None
+
+        return document.data
+    
+    def peek(self) -> PrintDocument | None:
+        """
+        Возвращает первый документ из очереди без его удаления.
+        Если очередь пуста, возвращает None.
+        :return: PrintDocument | None
+        """
+        if self.is_empty():
+            return None
+        
+        return self.__head.data
+    
+    def count(self)-> int:
+        """
+        Возвращает количество документов в очереди
+        :return: count elems
+        """
+        return self.__count
+    
+print_doc = PrintDocument('123', 12)
+queue = PrintQueue()
+queue.is_empty()
+queue.enqueue(print_doc)
+queue.peek()
+queue.dequeue()
